@@ -1,0 +1,11 @@
+% layout 'default';
+% title 'Welcome';
+<h2><%= flash('msg') || $msg || title %></h2>
+<%= link_to 'Backups' => '/minion' %>
+<p>
+  %= form_for 'isomaker' => (method => 'post') => begin
+    %= label_for 'name' => 'Disc name:'
+    %= text_field 'name'
+    %= submit_button 'Backup Disc'
+  % end
+</p>
