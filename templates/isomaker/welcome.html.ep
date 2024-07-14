@@ -1,6 +1,12 @@
 % layout 'default';
 % title 'Welcome';
 <h2><%= flash('msg') || $msg || title %></h2>
+<h3 id="busy"></h3>
+% my $url = url_for 'busy';
+<script>
+  const ws = new WebSocket('<%= $url->to_abs %>');
+  ws.onmessage = function (event) { document.getElementById('busy').textContent = event.data };
+</script>
 <%= link_to 'Backups' => '/minion' %>
 <p>
   %= form_for 'isomaker' => (method => 'post') => begin

@@ -1,4 +1,9 @@
+backups
+isos
+log
 local
 .vscode
 *.db
+*.db-*
 *.snapshot
+*.pid

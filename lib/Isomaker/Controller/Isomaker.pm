@@ -6,7 +6,7 @@ sub make ($self) {
     return $self->flash(msg => 'There is already an iso being made')->redirect_to('welcome');
   }
   my $name = $self->param('name');
-  $self->app->minion->enqueue(make_iso => [$name]);
+  $self->app->minion->enqueue(make_iso => [$name, 1, 1]);
   $self->flash(msg => "Queued isomaker for $name")->redirect_to('welcome');
 }
 
