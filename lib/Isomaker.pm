@@ -27,6 +27,7 @@ sub startup ($self) {
       $job->app->log->info($mnt);
       my @mnt = split /\s+/, $mnt, 6;
       $mnt = $mnt[-1];
+      $mnt = undef if $mnt =~ /^\/dev/;
       return $job->fail("$disc disc not found") unless $disc && -e $disc;
       $job->note(progress => 0);
       if ($mkiso) {
